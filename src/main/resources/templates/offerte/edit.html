@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modifica offerta</title>
+
+<th:block th:replace="~{fragments :: head}"></th:block>
+</head>
+<body>
+	<main class="container">
+		<h1 class="mt-4">Modifica offerta</h1>
+
+		<h5 th:text="${offerta.inizioOfferta}"></h5>
+
+		<!--  Form: Crea una nuova offer -->
+		<form id="offer-form" th:object="${offerta}" th:action="@{/offerte/update/{id} (id=${offerta.id})}" method="post">
+			<input type="hidden" th:field="*{pizza.id}">
+			<!--  Nome -->
+	    	<label for="title" class="form-label">Nome</label>
+	    	<input type="text" maxlength="30" th:field="*{titolo}" class="form-control" id="titolo" th:errorClass="is-invalid">
+			<!-- Validation Error -->
+		  	<div th:if="${#fields.hasErrors('titolo')}" class="invalid-feedback">
+				<ul>
+					<li th:each="err : ${#fields.errors('titolo')}" th:text="${err}"></li>
+				</ul>
+			</div>
+
+		  	<div class="input-group input-group-lg mt-2">
+				<label class="input-group-text" id="inputGroup-sizing-lg" for="startDate">
+					Inizio Offerta:
+				</label> 
+				<input type="date"
+					id="startDate" th:field="*{inizioOffeta}" class="form-control"
+					th:errorClass="is-invalid">
+
+				<div th:if="${#fields.hasErrors('inizioOfferta')}" class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('inizioOfferta')}"
+							th:text="${err}"></li>
+					</ul>
+				</div>
+
+				<label class="input-group-text" id="inputGroup-sizing-lg" for="endDate">
+					Fine Offerta:
+				</label> 
+				<input type="date"
+					id="fineOfferta" th:field="*{fineOfferta}" class="form-control"
+					th:errorClass="is-invalid">
+
+				<div th:if="${#fields.hasErrors('fineOfferta')}" class="invalid-feedback">
+					<ul>
+						<li th:each="err: ${#fields.errors('fineOfferta')}"
+							th:text="${err}"></li>
+					</ul>
+				</div>
+			</div>
+
+
+		  	<button type="submit" class="btn btn-primary">Salva</button>
+		</form>
+	</main>
+</body>
+</html>
