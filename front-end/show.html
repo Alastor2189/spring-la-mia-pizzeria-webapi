@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="../src/main/resources/static/css/style.css">
+    <title>Dettaglio Pizza</title>
+</head>
+
+<body class="body">
+    <div class="p-3">
+		<p class="fs-6">
+			<a href="index.html"><i class="fa-solid fa-arrow-left text-dark fs-3 align-middle"></i></a> Torna alla Home
+		</p>
+	</div>
+	<div class="container">
+		<div class="row">
+		
+			<div class="position-relative box_detail">
+				<img id="foto_pizza" class="w-100 h-100 img_detail" style="object-fit: cover">
+				<div class="body_detail p-4 rounded-1">
+					<div class="title_detail">
+						<h2 id="titolo_pizza"></h2>
+					</div>
+					<p class="card-text mt-4">Descrizione:
+						<span id="descrizione_pizza" class="d-block"></span>
+					</p>
+					<p id="ingredienti_pizza" class="card-text">
+						<p class="d-block" id="ingrediente_pizza"> </p> 
+					</p>
+					<h6>Prezzo: <span id="prezzo_pizza"  class="d-block"></span></h6>
+					
+					<div>
+						<h4>Offerte:</h4>
+						<ul id="offerte_pizza">
+						</ul>
+                        <p id="offerte_vuote"></p>
+					</div>
+					
+					<!-- <div class="d-flex position-absolute boxEdit_detail">
+						<p class="ms-3">Crea offerta <span><a th:href="@{|/offerte/create?idPizza=${pizza.id}|}"><i class="fa-solid fa-plus fs-4"></i></a></span> </p>
+						<a class="ms-3" th:href="@{'/pizze/edit/{id}'(id=${pizza.id})}">
+							<i class="fa-solid fa-pen-to-square fs-4 text-warning fw-light"></i>
+						</a>
+						<form action="#"
+							th:action="@{'/pizze/delete/{id}'(id=${pizza.id})}" method="post">
+							<button type="submit" id="submitButton"
+								class="border-0 bg-transparent ms-3">
+								<i class="fa-solid fa-trash-can fs-4 text-danger fw-light"></i>
+							</button>
+						</form>
+					</div> -->
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script/detail.js"></script>
+</body>
+
+</html>
